@@ -17,32 +17,34 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
             android:layout_centerVertical="true"
-            android:textStyle="bold"
-            android:text="Konto Navn" />
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="14dp"
+            android:text="Title"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/type"
+            android:id="@+id/source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/account_name"
+            android:layout_below="@+id/title"
             android:layout_alignParentStart="true"
-            android:textSize="9dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="2dp"
-            android:text="Konto Type" />
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="0dp"
+            android:text="Source"
+            android:textSize="9dp" />
 
         <TextView
             android:id="@+id/sum"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="30dp"
-            android:text="Total Sum" />
+            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="31dp"
+            android:text="Total Sum"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

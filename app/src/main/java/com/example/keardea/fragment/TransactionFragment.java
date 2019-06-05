@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.keardea.HeaderDataImpl;
 import com.example.keardea.R;
@@ -34,6 +35,14 @@ public class TransactionFragment extends Fragment {
             selectedAccount = getArguments().getParcelable("selectedAccount");
         }
         View view = inflater.inflate(R.layout.fragment_transactions, container, false);
+
+        TextView tvAccountName = view.findViewById(R.id.account_name);
+
+        TextView tvAccountSum = view.findViewById(R.id.account_sum);
+
+        tvAccountName.setText(selectedAccount.getName());
+        tvAccountSum.setText(String.format("%.2f", selectedAccount.getSum()));
+
 
         setupRecyclerView(view);
         return view;
@@ -60,7 +69,6 @@ public class TransactionFragment extends Fragment {
         Log.d(TAG, "setData: " + selectedAccount.getIncomingTransactions().size() + " " + selectedAccount.getPastTransactions().size());
 
         adapter.setHeaderAndData(selectedAccount.getIncomingTransactions(), headerData);
-
         adapter.setHeaderAndData(selectedAccount.getPastTransactions(), headerData);
     }
 }

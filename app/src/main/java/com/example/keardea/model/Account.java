@@ -64,6 +64,7 @@ public class Account implements Parcelable {
     }
 
     public void initDummyData() {
+        this.addTransaction("Overførsel", "AAB", "31-06-2019", -13000, "", "");
         this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
         this.addTransaction("Dankort", "Netto", "21-05-2019", -39, "", "");
         this.addTransaction("Overførsel", "Frederik Nagel", "21-05-2019", 100, "", "");
