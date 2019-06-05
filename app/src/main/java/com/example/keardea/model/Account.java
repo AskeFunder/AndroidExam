@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Account implements Parcelable {
 
@@ -25,6 +26,7 @@ public class Account implements Parcelable {
         name = in.readString();
         type = in.readString();
         sum = in.readDouble();
+        transactions = in.createTypedArrayList(Transaction.CREATOR);
     }
 
     public static final Creator<Account> CREATOR = new Creator<Account>() {
@@ -91,6 +93,28 @@ public class Account implements Parcelable {
         return transactions;
     }
 
+    public List<Transaction> getIncomingTransactions() {
+        ArrayList<Transaction> incomingTransactions = new ArrayList<>();
+
+        for (Transaction transaction : this.transactions) {
+            if (transaction.getDate().compareTo(new Date()) > 0 ){
+                incomingTransactions.add(transaction);
+            }
+        }
+        return incomingTransactions;
+    }
+
+    public List<Transaction> getPastTransactions() {
+        ArrayList<Transaction> pastTransactions = new ArrayList<>();
+
+        for (Transaction transaction : this.transactions) {
+            if (transaction.getDate().compareTo(new Date()) <= 0 ){
+                pastTransactions.add(transaction);
+            }
+        }
+        return pastTransactions;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -101,5 +125,6 @@ public class Account implements Parcelable {
         dest.writeString(name);
         dest.writeString(type);
         dest.writeDouble(sum);
+        dest.writeTypedList(transactions);
     }
 }

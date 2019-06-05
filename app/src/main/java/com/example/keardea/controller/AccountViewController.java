@@ -27,7 +27,6 @@ import com.example.keardea.model.Account;
 import com.example.keardea.model.User;
 
 public class AccountViewController extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
     //var
     private User user;
 
@@ -75,6 +74,7 @@ public class AccountViewController extends AppCompatActivity implements Navigati
             @Override
             public void onCellClick(int position) {
                 Account selectedAccount = user.getAccounts().get(position);
+
                 Intent intent = new Intent(getApplicationContext(), TabBarController.class);
                 intent.putExtra("selectedAccount", selectedAccount);
                 startActivity(intent);
