@@ -2,8 +2,12 @@ package com.example.keardea.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class User implements Parcelable {
 
@@ -55,5 +59,48 @@ public class User implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
         dest.writeTypedList(accounts);
+    }
+
+    public Set<Transaction> getFrequentPersons() {
+
+        List<Transaction> frequentPersonsArray = new ArrayList<>();
+
+        for (Account account : this.accounts) {
+            for (Transaction transaction : account.getTransactions()) {
+                if (transaction.getAccountNumber() != null && transaction.getAccountNumber() != "") {
+                    Log.d("User:", "getFrequentPersons: " + transaction.getAccountNumber());
+                    if (!transaction.getRegNumber().equals("71")) {
+                        frequentPersonsArray.add(transaction);
+                    }
+                }
+            }
+        }
+
+
+
+        Set<Transaction> frequentPersonsSet = new HashSet<>(frequentPersonsArray);
+
+        return frequentPersonsSet;
+    }
+
+    public Set<Transaction> getFrequentBills() {
+        List<Transaction> frequentBillsArray = new ArrayList<>();
+
+        for (Account account : this.accounts) {
+            for (Transaction transaction : account.getTransactions()) {
+                if (transaction.getAccountNumber() != null && transaction.getAccountNumber() != "") {
+                    Log.d("User:", "getFrequentPersons: " + transaction.getAccountNumber());
+                    if (transaction.getRegNumber().equals("71")) {
+                        frequentBillsArray.add(transaction);
+                    }
+                }
+            }
+        }
+
+
+
+        Set<Transaction> frequentBillsSet = new HashSet<>(frequentBillsArray);
+
+        return frequentBillsSet;
     }
 }

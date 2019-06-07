@@ -2,9 +2,7 @@ package com.example.keardea.controller;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,11 +15,10 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.keardea.adapter.RecyclerViewAdapter;
-import com.example.keardea.fragment.ChatFragment;
-import com.example.keardea.fragment.MessageFragment;
+import com.example.keardea.fragment.PayYouFragment;
+import com.example.keardea.fragment.PayOtherFragment;
 import com.example.keardea.R;
 import com.example.keardea.model.Account;
 import com.example.keardea.model.User;
@@ -77,6 +74,7 @@ public class AccountViewController extends AppCompatActivity implements Navigati
 
                 Intent intent = new Intent(getApplicationContext(), TabBarController.class);
                 intent.putExtra("selectedAccount", selectedAccount);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });
@@ -119,7 +117,7 @@ public class AccountViewController extends AppCompatActivity implements Navigati
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new MessageFragment()).commit();
+                    new PayOtherFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_message);
         }
     }
@@ -129,13 +127,13 @@ public class AccountViewController extends AppCompatActivity implements Navigati
         switch (menuItem.getItemId()){
             case R.id.nav_message:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new MessageFragment()).commit();
+                        new PayOtherFragment()).commit();
                 Log.d(TAG, "onNavigationItemSelected: nav_message");
                 
                 break;
             case R.id.nav_chat:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ChatFragment()).commit();
+                        new PayYouFragment()).commit();
                 Log.d(TAG, "onNavigationItemSelected: nav chat");
                 break;
             case R.id.nav_external:

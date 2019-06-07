@@ -30,4 +30,9 @@ dependencies {
 
     //sectioned recyclerview
     implementation 'com.saber:stickyheader:1.0'
+
+    //segmented control
+    implementation 'com.github.ceryle:SegmentedButton:v2.0.2'
+    implementation 'info.hoang8f:android-segmented:1.0.6'
+
 }

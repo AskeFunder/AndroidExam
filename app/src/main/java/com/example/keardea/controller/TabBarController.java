@@ -1,30 +1,21 @@
 package com.example.keardea.controller;
 
-import android.preference.PreferenceActivity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 
-import com.example.keardea.HeaderDataImpl;
 import com.example.keardea.R;
-import com.example.keardea.adapter.TransactionAdapter;
-import com.example.keardea.fragment.ChatFragment;
-import com.example.keardea.fragment.MessageFragment;
+import com.example.keardea.fragment.PayYouFragment;
+import com.example.keardea.fragment.PayOtherFragment;
 import com.example.keardea.fragment.TransactionFragment;
 import com.example.keardea.model.Account;
-import com.example.keardea.model.Transaction;
 import com.example.keardea.model.User;
-import com.saber.stickyheader.stickyData.HeaderData;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class TabBarController extends AppCompatActivity {
 
@@ -40,7 +31,10 @@ public class TabBarController extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        selectedAccount = getIntent().getParcelableExtra("selectedAccount");
+        Intent intent = getIntent();
+
+        user = intent.getParcelableExtra("user");
+        selectedAccount = intent.getParcelableExtra("selectedAccount");
 
         Log.d(TAG, "onCreate: " + selectedAccount.getTransactions().size() + " " + selectedAccount.getPastTransactions().size());
         Log.d(TAG, "onCreate: " + selectedAccount.getName());
@@ -57,17 +51,24 @@ public class TabBarController extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
                     Fragment selectedFragment = null;
+                    Bundle bundle = new Bundle();
 
                     switch (menuItem.getItemId()) {
-                        case R.id.nav_home:
-                            selectedFragment = new ChatFragment();
+                        case R.id.nav_pay_you:
+                            selectedFragment = new PayYouFragment();
                             break;
-                        case R.id.nav_favorites:
-                            selectedFragment = new MessageFragment();
+                        case R.id.nav_pay_others:
+                            selectedFragment = new PayOtherFragment();
+
+                            System.out.println("user " + user);
+
+
+                            bundle.putParcelable("selectedAccount", selectedAccount);
+                            bundle.putParcelable("user", user);
+                            selectedFragment.setArguments(bundle);
                             break;
                         case R.id.nav_transactions:
                             selectedFragment = new TransactionFragment();
-                            Bundle bundle = new Bundle();
                             bundle.putParcelable("selectedAccount", selectedAccount);
                             selectedFragment.setArguments(bundle);
                             break;

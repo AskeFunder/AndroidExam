@@ -2,18 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_pay_you"
         android:icon="@drawable/ic_money"
-        android:title="Home" />
-
-    <item
-        android:id="@+id/nav_favorites"
-        android:icon="@drawable/ic_person"
-        android:title="Favorites" />
+        android:title="Overfør til dig" />
 
     <item
         android:id="@+id/nav_transactions"
-        android:icon="@drawable/ic_menu"
-        android:title="Search" />
+        android:icon="@drawable/ic_money"
+        android:title="Transaktioner" />
+
+    <item
+        android:id="@+id/nav_pay_others"
+        android:icon="@drawable/ic_person"
+        android:title="Betal til andre" />
+
+
 
 </menu>

@@ -59,6 +59,8 @@ public class TransactionFragment extends Fragment {
 
         System.out.println(recyclerView);
 
+
+
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }
@@ -70,6 +72,12 @@ public class TransactionFragment extends Fragment {
 
         adapter.setHeaderAndData(selectedAccount.getIncomingTransactions(), headerData);
         adapter.setHeaderAndData(selectedAccount.getPastTransactions(), headerData);
+
+
+
+
+
+
     }
 }
 

@@ -64,18 +64,19 @@ public class Account implements Parcelable {
     }
 
     public void initDummyData() {
-        this.addTransaction("Overførsel", "AAB", "31-06-2019", -13000, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
-        this.addTransaction("Dankort", "Netto", "21-05-2019", -39, "", "");
-        this.addTransaction("Overførsel", "Frederik Nagel", "21-05-2019", 100, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
-        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", "");
+        this.addTransaction("Overførsel", "AAB", "31-06-2019", -13000, "", null);
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("Dankort", "Netto", "21-05-2019", -39, "", null);
+        this.addTransaction("Overførsel", "Frederik Nagel", "21-05-2019", 100, "7678", "859406");
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("Dankort", "Rema1000", "21-05-2019", -429.95, "", null);
+        this.addTransaction("ADanmark", "Forsikring adanmark", "01-05-2019", 319.95, "71", "748339284");
     }
 
     public String getName() {

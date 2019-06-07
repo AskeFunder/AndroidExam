@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FRA"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@id/sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:text="Lønkonto(20339.43)"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <View
+        android:layout_below="@id/sum"
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#C0C0C0"/>
+
+    <info.hoang8f.android.segmented.SegmentedGroup
+        xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/segmented_group"
+        android:layout_centerHorizontal="true"
+
+        android:layout_below="@+id/divider2"
+        android:layout_width="match_parent"
+
+        android:layout_height="30dp"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        segmentedgroup:sc_border_width="2dp"
+        segmentedgroup:sc_corner_radius="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_horizontal"
+        >
+
+
+        <RadioButton
+            android:id="@+id/button21"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:layout_weight="0.5"
+            android:text="Konto"
+            style="@style/RadioButton" />
+
+        <RadioButton
+            android:id="@+id/button22"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:text="Regning"
+            style="@style/RadioButton" />
+    </info.hoang8f.android.segmented.SegmentedGroup>
+
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_textfield"
+        android:paddingLeft="20dp"
+        android:hint="Navn"
+        android:layout_below="@id/segmented_group"/>
+
+    <EditText
+        android:id="@+id/account_number"
+        android:layout_marginTop="20dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="20dp"
+        android:hint="Konto nr"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/reg_number"
+        android:background="@drawable/rounded_textfield"
+        android:layout_below="@id/name"/>
+
+    <EditText
+        android:id="@+id/reg_number"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:hint="Reg. nr"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/rounded_textfield"
+        android:layout_below="@id/name"/>
+
+    <Button
+        android:id="@+id/buttonOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_number"
+        android:layout_alignParentEnd="true"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_button"
+        android:text="OK"
+        android:textColor="#FFFFFF" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@id/buttonOk"
+        android:layout_marginTop="20dp"
+        android:background="#c0c0c0">
+
+    </View>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_below="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"></android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>
